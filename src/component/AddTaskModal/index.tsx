@@ -5,7 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { addTask } from '../../firebase/queries/insertTask.ts';
 import { toast } from 'react-toastify';
 
@@ -53,7 +53,7 @@ export default function AddTaskModal({ open, handleClose, fetchList }) {
           <div>
             <TextField autoFocus margin="dense" onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange(e)} name='description' rows={4} maxRows={5} id="name" label="Description" type="text" multiline fullWidth variant="outlined" />
           </div>
-          <div style={{ marginTop: '10px' }}>
+          <Box marginTop={1}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Status</InputLabel>
               <Select
@@ -69,7 +69,7 @@ export default function AddTaskModal({ open, handleClose, fetchList }) {
                 <MenuItem value={'DONE'}>done</MenuItem>
               </Select>
             </FormControl>
-          </div>
+          </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

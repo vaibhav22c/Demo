@@ -7,6 +7,9 @@ import EditTaskModal from "../EditTaskModal/index.tsx";
 import DeleteTaskModal from "../DeleteTaskModal/index.tsx";
 import TabMobileView from "../TabMobileView/index.tsx";
 import TaskCard from "../TaskCard/index.tsx";
+import { useUserContext } from '../../context/provider.tsx';
+import { firestore } from "../../firebase/firebase.ts";
+import { Box } from "@mui/material";
 
 export const taskTypes: any = {
     todo: 'TODO' || 'To Do' || 'todo',
@@ -15,6 +18,8 @@ export const taskTypes: any = {
 };
 
 export default function LeftSection() {
+
+    const { data }: any = useUserContext();
     const [taskList, setTaskList] = useState<any[] | null>(null);
     const [openAddModal, setOpenAddModal] = useState<Boolean>(false);
     const [openEditModal, setOpenEditModal] = useState<Boolean>(false);
@@ -23,6 +28,7 @@ export default function LeftSection() {
     const [selectedTab, setSelectedTab] = useState<string>(taskTypes?.todo);
 
     const getTaskListResponse = () => {
+        // get task list from fireStore
         fetchTaskList().then((res) => {
             if (res) {
                 setTaskList(res)
@@ -36,8 +42,8 @@ export default function LeftSection() {
         getTaskListResponse();
     }, []);
 
-
     const getTaskList = (data: any[] | null) => {
+        // task filter status wise (TODO,INPROGRESS,DONE)
         const tasksByCardType: any = {}; // Index signature added
 
         Object.keys(taskTypes).forEach((cardType) => {
@@ -68,9 +74,12 @@ export default function LeftSection() {
     return (
         <>
             <div className="board-main">
-                <div style={{ padding: "20px" }}>
-                    <Button onClick={() => setOpenAddModal(true)} variant="contained">Add task</Button>
-                </div>
+                <Box padding={2} textAlign={'right'}>
+                    {
+                        data?.role == 'admin' &&
+                        <Button onClick={() => setOpenAddModal(true)} variant="contained">Add task</Button>
+                    }
+                </Box>
                 <div className="flexTask">
                     {Object.keys(boardRask).map((item, index) => {
                         return (

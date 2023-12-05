@@ -3,6 +3,7 @@ import "firebase/compat/firestore";
 import 'firebase/compat/auth';
 
 interface FirebaseApp {
+  auth: () => firebase.auth.Auth;
   firestore: () => firebase.firestore.Firestore;
 }
 
@@ -17,6 +18,7 @@ const firebaseConfig = {
 };
 
 const app: FirebaseApp = firebase.initializeApp(firebaseConfig);
+const auth = app.auth();
 const firestore = app.firestore();
 
-export { firestore };
+export { auth, firestore };

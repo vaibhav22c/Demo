@@ -5,6 +5,7 @@ interface IUpdateData {
   [key: string]: string | number;
 }
 export const updateTask = (docId: string, updateData: IUpdateData) => {
+  // update task in firestore
   const docRef = firestore.collection(collection.task).doc(docId);
 
   return docRef
