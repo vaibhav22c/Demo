@@ -1,0 +1,117 @@
+.board-main {
+    height: 92vh;
+    background-color: #D8D0DA;
+}
+
+.flexTask {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 0 20px;
+    height: 85%;
+}
+
+.mobileTasks {
+    display: none;
+}
+
+.board-card {
+    background-color: white !important;
+    width: 33%;
+    border-radius: 10px;
+    min-height: calc(100% - 100px);
+    padding-bottom: 15px;
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading {
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.board-card>.card-title {
+    padding: 15px;
+    border-bottom: 1px solid #D8D0DA;
+}
+
+.add-card {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(189, 181, 189);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket-card {
+    padding: 15px;
+    gap: 20px;
+    flex-direction: column;
+    height: calc(100% - 90px);
+    overflow-y: scroll;
+}
+
+.cardTitleText {
+    color: blueviolet;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cardDescText {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.flexCardIcons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconBox {
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 1440px) {
+    .board-card>.card-title {
+        padding: 15px;
+    }
+
+    .ticket-card {
+        padding: 15px;
+    }
+
+}
+
+@media (max-width: 1280px) {
+    .heading {
+        font-size: var(--fs-18);
+    }
+}
+
+@media (max-width: 768px) {
+    .mobileTasks {
+        display: block;
+        margin: 0 20px;
+    }
+
+    .flexTask {
+        display: none;
+    }
+
+    .board-card {
+        width: 100%;
+    }
+
+    .heading {
+        font-size: var(--fs-18);
+    }
+}

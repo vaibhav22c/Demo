@@ -1,0 +1,27 @@
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  height: 5vh;
+}
+
+.header-tab {
+  gap: 100px;
+}
+
+.header-logo {
+  color: var(--primary);
+  font-size: 24px;
+  color: purple;
+  font-weight: bold;
+}
+
+@media (max-width: 562px) {
+  .header-tab {
+    display: none;
+  }
+
+}

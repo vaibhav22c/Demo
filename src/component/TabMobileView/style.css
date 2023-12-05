@@ -1,0 +1,39 @@
+.mobile-board {
+  display: none;
+}
+
+.chips-main {
+  display: flex;
+  background-color: #EBE2EA;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.chips-main>button {
+  flex: 1;
+  font-size: var(--fs-14);
+  font-weight: 400;
+  white-space: nowrap;
+  height: 37px;
+  border-radius: 8px;
+  background-color: #EBE2EA;
+  border: none;
+
+}
+
+.chips-main>button:active {
+  background: #A633CC;
+  color: white;
+}
+
+.active-tab {
+  background: #A633CC !important;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .mobile-board {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
